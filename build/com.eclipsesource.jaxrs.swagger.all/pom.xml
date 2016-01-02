@@ -136,4 +136,11 @@
 		</dependency>
 	</dependencies>
 
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/maggu2810/maven/osgi-jax-rs-connector</url>
+    </repository>
+  </distributionManagement>
+
 </project>
