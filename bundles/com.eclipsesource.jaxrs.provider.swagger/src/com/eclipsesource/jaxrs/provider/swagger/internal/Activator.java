@@ -10,20 +10,20 @@
  ******************************************************************************/
 package com.eclipsesource.jaxrs.provider.swagger.internal;
 
+import io.swagger.config.ScannerFactory;
+import io.swagger.jaxrs.config.SwaggerContextService;
+import io.swagger.jaxrs.config.SwaggerScannerLocator;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.cm.ManagedService;
-
-import io.swagger.config.ScannerFactory;
-import io.swagger.jaxrs.listing.ApiListingResource;
-import io.swagger.jaxrs.listing.SwaggerSerializers;
 
 
 public class Activator implements BundleActivator {
@@ -37,6 +37,7 @@ public class Activator implements BundleActivator {
   @Override
   public void start( BundleContext bundleContext ) throws Exception {
     SwaggerConfiguration swaggerConfiguration = registerSwaggerConfiguration( bundleContext );
+    SwaggerScannerLocator.getInstance().putScanner(SwaggerContextService.SCANNER_ID_DEFAULT, new OSGiJaxRsScanner( swaggerConfiguration ));
     ScannerFactory.setScanner( new OSGiJaxRsScanner( swaggerConfiguration ) );
     registrations.add( bundleContext.registerService( ApiListingResource.class.getName(), new ApiListingResource(), null ) );
     registrations.add( bundleContext.registerService( SwaggerSerializers.class.getName(), new SwaggerSerializers(), null ) );
