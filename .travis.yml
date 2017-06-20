@@ -1,4 +1,15 @@
 language: java
 jdk:
   - oraclejdk7
-script: "mvn -f build/com.eclipsesource.jaxrs.build/pom.xml clean verify"
+before_install:
+- git clone --depth 1 https://github.com/Cooperate-Project/BuildUtils.git /tmp/BuildUtils
+- . /tmp/BuildUtils/travisci/setup.sh
+install: true
+script:
+- mavenBuild.sh
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+env:
+  global:  
+  - secure: "bt3eGkN1m9WakAjG/TPHVfefgwSJGqFYcg/pY1AuH723wA9RSNcE82dqq4YvPi47RwZU3JxZ6r4v3YaGL2Kqo6t3Ic9nIGsCQoDVNYO/AXatb2pAqXFKw2WSizAfPwZnPGKdUVud+sLaq2GXc1qIcoHEr6gdVOFMLPEcdzJi6Lj1P/zo5sw/2StqmBCa8e5Fxy1eSk8s7qbQArbUCZADW4UIuA+cQ5crZZ2JvxU4mwTFbHQLcKTBcqZ7w8hpkJHVSOfNsDDGsHvbRPZ5iw5wPTeRi8wtm2ZNGumGorlnILWNZXiJAYRQZuzYZMcGO+B0luf0VTqVVG8WfOkI2fu42wjxBXpCh2IaSav66BmsP7IAjwyUVuaqIz69DpoS3i2B4xxTt6lrkKU+IyQ0Z0NGqErQ23hNxo7aEEc5HqnYpVGOBdGiHgNvHbZNULwEp6CgHRKbDPZ8AkPC5Bb9cmvP6ycT5YvrNPrPFxbq+/4RWb8Nf0qZE09O4B5fp3fO0lDMdE2tr9nldLMaIdlgzQHHA6McEuaaXxett6C4rweqEsLlm8VJOLoChOLL6UkJN3iQzLhDLVze80MZ2isnawYI8MLMstfRssu3D8iMGPg+/+csHdnBBZarOTyzIHvRfrxkWN+6oQd/jLV8Y23rVT7gNqgxdEWUInn11IuWOzTgNjQ="
