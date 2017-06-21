@@ -22,7 +22,7 @@
 	<properties>
 		<maven.deploy-plugin.version>2.8.2</maven.deploy-plugin.version>
 		<bintray.deploy.plugin.version>0.1.1</bintray.deploy.plugin.version>
-		<bintray.deploy.repository>CooperateModelingEnvironment</bintray.deploy.repository>
+		<bintray.deploy.repository> osgj-jax-rs-connector</bintray.deploy.repository>
 		<bintray.deploy.file>build/com.eclipsesource.jaxrs.repository/target/repository</bintray.deploy.file>
 	</properties>
 
