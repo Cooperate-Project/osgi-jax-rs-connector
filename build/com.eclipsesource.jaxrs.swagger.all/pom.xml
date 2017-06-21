@@ -86,13 +86,13 @@
 					<finalName>shaded-DO-NOT-USE</finalName>
 					<createSourcesJar>true</createSourcesJar>
 					<filters>
-							<filter>
-									<artifact>org.slf4j:slf4j-api</artifact>
-									<excludes>
-											<exclude>*</exclude>
-											<exclude>**</exclude>
-									</excludes>
-							</filter>
+						<filter>
+							<artifact>org.slf4j:slf4j-api</artifact>
+							<excludes>
+								<exclude>*</exclude>
+								<exclude>**</exclude>
+							</excludes>
+						</filter>
 					</filters>
 					<transformers>
 						<transformer
