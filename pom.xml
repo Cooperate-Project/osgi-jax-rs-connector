@@ -28,15 +28,6 @@
 
 	<build>
 		<plugins>
-
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>${maven.deploy-plugin.version}</version>
-				<configuration>
-					<deployAtEnd>true</deployAtEnd>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
 			
 			<plugin>
 				<groupId>de.cooperateproject.maven</groupId>
